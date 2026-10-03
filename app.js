@@ -25,7 +25,7 @@ function $(id){ return document.getElementById(id); }
 var confetti = (function(){
   var cv = $('confetti'), ctx = cv.getContext('2d'), parts = [], raf = null;
   var rafFn = window.requestAnimationFrame || function(fn){ return setTimeout(fn, 16); };
-  var COLORS = ['#f5c86e','#ff7eb3','#7CFC98','#8fb8ff','#fff3b0','#ff5e8a','#ffffff'];
+  var COLORS = ['#a8823c','#d4af6a','#1c1a17','#e8e4de','#c48a8a','#8a9a5b'];
   function size(){ cv.width = window.innerWidth; cv.height = window.innerHeight; }
   size();
   window.addEventListener('resize', size);
