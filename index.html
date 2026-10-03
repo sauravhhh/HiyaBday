@@ -3,115 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1a1025">
-<title>Happy 18th, Hiya! 🎂</title>
+<meta name="theme-color" content="#faf9f7">
+<title>Happy 18th, Hiya</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <style>
 :root{
-  --bg:#1a1025; --bg2:#241533; --gold:#f5c86e; --pink:#ff7eb3; --cream:#fff8ec;
-  --ink:#f4eefb; --muted:#b9a8d6; --card:#251636;
+  --bg:#faf9f7; --card:#ffffff; --ink:#1c1a17; --muted:#6f6a63;
+  --line:#e7e2da; --gold:#a8823c; --gold-soft:#f3ead8;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  background:radial-gradient(1200px 800px at 50% -10%, #33204a 0%, var(--bg) 55%) fixed, var(--bg);
-  color:var(--ink);
+body{background:var(--bg);color:var(--ink);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  min-height:100vh; overflow-x:hidden;
-}
+  min-height:100vh;-webkit-font-smoothing:antialiased}
 .serif{font-family:Georgia,"Times New Roman",serif}
-/* twinkling stars */
-.stars{position:fixed;inset:0;pointer-events:none;z-index:0}
-.star{position:absolute;background:#fff;border-radius:50%;animation:tw 3s infinite ease-in-out}
-@keyframes tw{0%,100%{opacity:.15}50%{opacity:.9}}
+.stars{display:none}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:60}
 
 /* surprise gate */
 #gate{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:radial-gradient(900px 700px at 50% 20%, #33204a 0%, var(--bg) 60%) fixed, var(--bg);
-  text-align:center;padding:24px;transition:opacity .6s, visibility .6s}
+  background:var(--bg);text-align:center;padding:24px;transition:opacity .5s, visibility .5s}
 #gate.gone{opacity:0;visibility:hidden}
-#gate .gift{font-size:84px;animation:bounce 1.6s infinite;cursor:pointer}
-@keyframes bounce{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-14px) scale(1.06)}}
-#gate h1{font-size:26px;margin:18px 0 8px}
-#gate p{color:var(--muted);font-size:15px;margin-bottom:26px}
-.btn{background:linear-gradient(135deg,var(--pink),#ff5e8a);color:#fff;border:0;border-radius:999px;
-  padding:15px 38px;font-size:17px;font-weight:700;cursor:pointer;box-shadow:0 8px 28px rgba(255,126,179,.35);
-  transition:transform .15s}
-.btn:active{transform:scale(.96)}
+#gate .gift{font-size:64px}
+#gate h1{font-size:24px;font-weight:600;margin:20px 0 8px;letter-spacing:.2px}
+#gate p{color:var(--muted);font-size:15px;margin-bottom:28px;line-height:1.6}
+.btn{background:var(--ink);color:#fff;border:0;border-radius:999px;
+  padding:14px 36px;font-size:16px;font-weight:600;cursor:pointer;transition:transform .15s, opacity .15s}
+.btn:active{transform:scale(.97)}
+.btn:hover{opacity:.88}
 
-#main{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:0 20px 60px}
+#main{max-width:600px;margin:0 auto;padding:0 22px 64px}
 .hidden{display:none!important}
 
-.hero{text-align:center;padding:56px 0 10px}
-.hero .eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px;text-transform:uppercase}
-.hero h1{font-size:44px;line-height:1.12;margin:12px 0 4px;
-  background:linear-gradient(120deg,#ffe9b8,var(--gold) 40%,var(--pink) 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero h1 .name{display:block;font-size:52px}
+.hero{text-align:center;padding:64px 0 12px}
+.hero .eyebrow{color:var(--gold);letter-spacing:3px;font-size:11px;text-transform:uppercase;font-weight:600}
+.hero h1{font-size:38px;line-height:1.2;margin:14px 0 6px;font-weight:600;letter-spacing:-.5px}
+.hero h1 .name{display:block}
 .hero p.sub{color:var(--muted);margin-top:10px;font-size:15px}
 
 /* cake */
-.cake-wrap{display:flex;justify-content:center;margin:34px 0 8px}
+.cake-wrap{display:flex;justify-content:center;margin:36px 0 10px}
 .cake{position:relative;width:220px;height:230px}
-.candle{position:absolute;bottom:118px;width:12px;height:64px;background:repeating-linear-gradient(45deg,#fff,#fff 6px,var(--pink) 6px,var(--pink) 12px);
-  border-radius:4px;cursor:pointer}
-.candle.c1{left:52px}.candle.c2{left:104px}.candle.c3{left:156px}
-.flame{position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:18px;height:26px;
-  background:radial-gradient(circle at 50% 75%, #fff6c8 0%, #ffd23e 45%, #ff8a3d 80%, transparent 100%);
+.candle{position:absolute;bottom:118px;width:10px;height:62px;background:var(--gold);
+  border-radius:3px;cursor:pointer}
+.candle.c1{left:52px}.candle.c2{left:105px}.candle.c3{left:158px}
+.flame{position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:16px;height:24px;
+  background:radial-gradient(circle at 50% 75%, #fff7dd 0%, #f2c14e 55%, #d98e32 85%, transparent 100%);
   border-radius:50% 50% 50% 50%/60% 60% 40% 40%;transform-origin:50% 100%;
-  animation:flick .28s infinite alternate ease-in-out;transition:opacity .3s, transform .3s}
+  animation:flick .3s infinite alternate ease-in-out;transition:opacity .3s, transform .3s}
 .candle.out .flame{opacity:0;transform:translateX(-50%) scale(.2)}
 .candle.out{cursor:default}
-@keyframes flick{from{transform:translateX(-50%) scale(1) rotate(-3deg)}to{transform:translateX(-50%) scale(1.12,1.22) rotate(3deg)}}
-.wick{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:3px;height:8px;background:#5a4a3a}
-.tier{position:absolute;left:50%;transform:translateX(-50%);border-radius:12px}
-.tier.top{bottom:64px;width:150px;height:56px;background:linear-gradient(#ff9ebb,#ff7eb3)}
-.tier.bottom{bottom:8px;width:200px;height:60px;background:linear-gradient(#b78bff,#8f5fe8)}
-.icing{position:absolute;left:50%;transform:translateX(-50%);height:16px;background:var(--cream);border-radius:0 0 12px 12px}
-.icing.i1{bottom:104px;width:150px}.icing.i2{bottom:52px;width:200px}
-.plate{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:230px;height:12px;background:#3a2a52;border-radius:999px}
-.wish-hint{color:var(--muted);font-size:14px;margin-top:6px;min-height:22px}
-.wish-done{color:var(--gold);font-weight:700;font-size:16px;min-height:22px}
+@keyframes flick{from{transform:translateX(-50%) scale(1)}to{transform:translateX(-50%) scale(1.1,1.18)}}
+.wick{position:absolute;top:-5px;left:50%;transform:translateX(-50%);width:2px;height:7px;background:#4a4238}
+.tier{position:absolute;left:50%;transform:translateX(-50%);border-radius:10px;background:#fff;border:1px solid var(--line)}
+.tier.top{bottom:64px;width:150px;height:56px}
+.tier.bottom{bottom:8px;width:200px;height:60px}
+.icing{position:absolute;left:50%;transform:translateX(-50%);height:12px;background:var(--gold-soft);
+  border:1px solid var(--line);border-bottom:0;border-radius:8px 8px 0 0}
+.icing.i1{bottom:108px;width:150px}.icing.i2{bottom:56px;width:200px}
+.plate{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:230px;height:10px;background:var(--line);border-radius:999px}
+.wish-hint{color:var(--muted);font-size:14px;margin-top:8px;min-height:22px}
+.wish-done{color:var(--gold);font-weight:600;font-size:15px;min-height:22px}
 
 /* cards */
-.card{background:var(--card);border:1px solid rgba(245,200,110,.16);border-radius:20px;
-  padding:26px 22px;margin:26px 0;box-shadow:0 12px 40px rgba(0,0,0,.35);
-  opacity:0;transform:translateY(26px);transition:opacity .7s, transform .7s}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:28px 26px;margin:20px 0;
+  opacity:0;transform:translateY(18px);transition:opacity .6s, transform .6s}
 .card.seen{opacity:1;transform:none}
-.card .tag{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.card h2{font-size:23px;margin-bottom:10px}
-.card p{font-size:15.5px;line-height:1.65;color:#e8def7}
+.card .tag{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+.card h2{font-size:22px;margin-bottom:10px;font-weight:600;letter-spacing:-.3px}
+.card p{font-size:15.5px;line-height:1.7;color:#3d3831}
 .card p + p{margin-top:10px}
-.card .big{font-size:40px;margin-bottom:8px}
 
 /* xp bar */
-.xp-track{background:#160d22;border-radius:999px;height:26px;overflow:hidden;margin:16px 0 8px;border:1px solid rgba(245,200,110,.25)}
-.xp-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#7CFC98,#37d67a,#f5c86e);
-  transition:width 2.2s cubic-bezier(.2,.8,.2,1)}
-.xp-label{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.xp-track{background:#f0ece5;border-radius:999px;height:10px;overflow:hidden;margin:18px 0 8px}
+.xp-fill{height:100%;width:0;border-radius:999px;background:var(--ink);
+  transition:width 2s cubic-bezier(.2,.8,.2,1)}
+.xp-label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted)}
 
-/* hogwarts letter */
-.letter{background:var(--cream);color:#4a3a28;border-radius:8px;padding:28px 24px;transform:rotate(-1.2deg);
-  box-shadow:0 14px 40px rgba(0,0,0,.45);font-size:15.5px;line-height:1.7}
-.letter h2{font-size:22px;margin-bottom:12px;color:#3a2c1c}
-.letter .seal{text-align:center;font-size:34px;margin-top:14px}
-.card.plain{background:transparent;border:0;box-shadow:none;padding:6px 2px}
+/* letter */
+.letter{border-left:3px solid var(--gold);padding:4px 0 4px 20px;font-size:15.5px;line-height:1.75;color:#3d3831}
+.letter h2{font-size:21px;margin-bottom:12px}
+.letter .sign{margin-top:12px}
+.card.plain{background:transparent;border:0;padding:8px 2px}
 
-/* feast */
-.feast{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
-.dish{background:#1d1129;border-radius:14px;padding:16px 6px;text-align:center;font-size:13px;color:var(--muted)}
-.dish .e{font-size:32px;display:block;margin-bottom:6px}
-
-.quote{font-style:italic;font-size:18px;line-height:1.7;color:#f0e6ff}
+.quote{font-style:italic;font-size:18px;line-height:1.7}
 .quote small{display:block;margin-top:10px;font-style:normal;color:var(--muted);font-size:13px}
 
-.finale{text-align:center;padding:20px 0 10px}
-.finale h2{font-size:30px;margin-bottom:12px}
-.finale .sig{margin-top:18px;color:var(--gold);font-size:16px}
-canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:60}
-footer{text-align:center;color:#6f5f8c;font-size:12px;padding:26px 0 8px}
-@media (max-width:380px){.hero h1{font-size:36px}.hero h1 .name{font-size:44px}}
+.finale{text-align:center;padding:28px 0 12px}
+.finale h2{font-size:28px;margin-bottom:12px;font-weight:600;letter-spacing:-.3px}
+.finale p{color:var(--muted);font-size:15px;line-height:1.7}
+.finale .sig{margin-top:20px;color:var(--ink);font-size:16px}
+footer{text-align:center;color:#a09a91;font-size:12px;padding:28px 0 10px}
+@media (max-width:380px){.hero h1{font-size:32px}}
 </style>
 </head>
 <body>
@@ -120,15 +106,15 @@ footer{text-align:center;color:#6f5f8c;font-size:12px;padding:26px 0 8px}
 
 <div id="gate">
   <div class="gift" id="giftBtn">🎁</div>
-  <h1>Psst… Hiya 🤫</h1>
-  <p>A little surprise is waiting for you.<br>Go on, open it.</p>
+  <h1 class="serif">A surprise for Hiya</h1>
+  <p>Something small is waiting for you.<br>Go on, open it.</p>
   <button class="btn" id="openBtn">Open your surprise</button>
 </div>
 
 <div id="main" class="hidden">
   <div class="hero">
     <div class="eyebrow">18 looks good on you</div>
-    <h1>Happy 18th Birthday <span class="name">Hiya! 🎂</span></h1>
+    <h1 class="serif">Happy 18th Birthday <span class="name">Hiya</span></h1>
     <p class="sub">Officially an adult. Unofficially still the same magical you.</p>
     <div class="cake-wrap">
       <div class="cake" id="cake">
@@ -140,64 +126,61 @@ footer{text-align:center;color:#6f5f8c;font-size:12px;padding:26px 0 8px}
         <div class="plate"></div>
       </div>
     </div>
-    <p class="wish-hint" id="wishHint">Make a wish… then tap each candle to blow it out 🕯️</p>
-    <p class="wish-done hidden" id="wishDone">✨ Wish locked in. It's going to come true. ✨</p>
+    <p class="wish-hint" id="wishHint">Make a wish, then tap each candle to blow it out.</p>
+    <p class="wish-done hidden" id="wishDone">Wish locked in. It's going to come true.</p>
   </div>
 
   <div class="card">
-    <div class="tag">🎮 Level up</div>
-    <h2>LEVEL 18 UNLOCKED</h2>
+    <div class="tag">Level up</div>
+    <h2 class="serif">Level 18 unlocked</h2>
     <p>Seventeen years of tutorial complete. The real game starts now — new map, bigger quests, same awesome player.</p>
     <div class="xp-track"><div class="xp-fill" id="xpFill"></div></div>
-    <div class="xp-label"><span>LVL 17</span><span>LVL 18 🎉</span></div>
+    <div class="xp-label"><span>Level 17</span><span>Level 18</span></div>
   </div>
 
   <div class="card plain">
     <div class="letter serif">
-      <div class="tag" style="color:#a07c3f">🪄 Hogwarts Post</div>
+      <div class="tag">Hogwarts post</div>
       <h2>Dear Hiya,</h2>
       <p>We are pleased to inform you that your <b>18th year of magic</b> has officially begun.</p>
-      <p>May your potions always taste like biryani, your spells always work on the first try, and your year be more magical than a trip to Honeydukes.</p>
-      <p>Yours sincerely,<br><b>The Birthday Wizard Council</b> ⚡</p>
-      <div class="seal">🦉</div>
+      <p>May your year be more magical than a trip to Honeydukes, and your spells work on the first try.</p>
+      <p class="sign">Yours sincerely,<br><b>The Birthday Wizard Council</b></p>
     </div>
   </div>
 
   <div class="card">
-    <div class="tag">✨ Disney magic</div>
-    <div class="big">🏰</div>
-    <h2>Once upon a time…</h2>
-    <p>…a girl who believed in magic, loved her stories, and never stopped dreaming turned <b>eighteen</b>. And her story? It's only getting started. Bibbidi-bobbidi-happy-birthday! 💫</p>
+    <div class="tag">Disney magic</div>
+    <h2 class="serif">Once upon a time…</h2>
+    <p>A girl who believed in magic, loved her stories, and never stopped dreaming turned <b>eighteen</b>. And her story? It's only getting started.</p>
   </div>
 
   <div class="card">
-    <div class="tag">🦸 Marvel studios presents</div>
-    <div class="big">⚡</div>
-    <h2>Origin Story: Chapter 18</h2>
-    <p>Every hero has an origin story. Eighteen is where yours gets its upgrade — new powers: wisdom, courage, and the unstoppable ability to find the best street food in any city.</p>
+    <div class="tag">Origin story</div>
+    <h2 class="serif">Chapter 18</h2>
+    <p>Every hero has an origin story. Eighteen is where yours gets its upgrade — new powers: wisdom, courage, and an unstoppable sense of adventure.</p>
   </div>
 
   <div class="card">
-    <div class="tag">📚 From the bookshelf</div>
+    <div class="tag">From the bookshelf</div>
     <p class="quote serif">"We are all in the gutter, but some of us are looking at the stars."
     <small>— Oscar Wilde</small></p>
-    <p style="margin-top:12px">Keep looking at the stars, Hiya. Eighteen suits a dreamer. 🌟</p>
+    <p style="margin-top:12px">Keep looking at the stars, Hiya. Eighteen suits a dreamer.</p>
   </div>
 
   <div class="card">
-    <div class="tag">🎪🛍️ Year 18 forecast</div>
-    <h2>More of everything you love</h2>
-    <p>More festivals to get lost in. More shopping sprees. More marathons of wizards and superheroes. More late-night ice cream. This is your year — spend it exactly how you like. 💛</p>
+    <div class="tag">Year 18 forecast</div>
+    <h2 class="serif">More of everything you love</h2>
+    <p>More festivals to get lost in. More shopping sprees. More marathons of wizards and superheroes. This is your year — spend it exactly how you like.</p>
   </div>
 
   <div class="finale">
-    <h2>Happy 18th, Hiya! 🥳</h2>
-    <p style="color:var(--muted);font-size:15px;line-height:1.7">Here's to magic and adventures.</p>
-    <p class="sig serif">— with love, Saurabh 💛</p>
-    <div style="margin-top:26px"><button class="btn" id="replayBtn">Replay the magic 🎉</button></div>
+    <h2 class="serif">Happy 18th, Hiya</h2>
+    <p>Here's to magic and adventures.</p>
+    <p class="sig serif">— with love, Saurabh</p>
+    <div style="margin-top:28px"><button class="btn" id="replayBtn">Replay the magic</button></div>
   </div>
 
-  <footer>Made with 💛 for Hiya's 18th</footer>
+  <footer>Made for Hiya's 18th</footer>
 </div>
 
 <script src="app.js"></script>
